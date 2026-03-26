@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050B14"/>
+      <stop offset="50%" stop-color="#0B192C"/>
+      <stop offset="100%" stop-color="#0A1220"/>
+    </linearGradient>
+
+    <!-- Teal Glow Gradient for Network -->
+    <linearGradient id="cyanGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2A5C73"/>
+      <stop offset="100%" stop-color="#5BC0BE"/>
+    </linearGradient>
+
+    <!-- Gold Gradient for Facts -->
+    <linearGradient id="goldGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD43B"/>
+      <stop offset="100%" stop-color="#D4AF37"/>
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+    </pattern>
+
+    <!-- Styles and Animations -->
+    <style>
+      .pulse { animation: pulseAnim 3s infinite alternate ease-in-out; }
+      .flow-particle { animation: flowAnim 4s infinite linear; }
+      .flow-particle:nth-child(2) { animation-delay: -1.5s; }
+      .flow-particle:nth-child(3) { animation-delay: -3s; }
+      .line-draw { 
+        stroke-dasharray: 600; 
+        stroke-dashoffset: 600; 
+        animation: drawAnim 6s infinite ease-in-out; 
+      }
+      .line-draw-delay-1 { animation-delay: 0.5s; }
+      .line-draw-delay-2 { animation-delay: 1s; }
+      
+      @keyframes pulseAnim {
+        0% { filter: drop-shadow(0 0 2px #5BC0BE); opacity: 0.7; transform: scale(0.98); transform-origin: center; }
+        100% { filter: drop-shadow(0 0 10px #5BC0BE); opacity: 1; transform: scale(1.02); transform-origin: center; }
+      }
+      
+      @keyframes flowAnim {
+        0% { transform: translateX(-50px); opacity: 0; }
+        20% { opacity: 1; }
+        80% { opacity: 1; }
+        100% { transform: translateX(250px); opacity: 0; }
+      }
+
+      @keyframes drawAnim {
+        0% { stroke-dashoffset: 600; opacity: 0.2;}
+        50% { stroke-dashoffset: 0; opacity: 1;}
+        100% { stroke-dashoffset: -600; opacity: 0.2;}
+      }
+      
+      .text-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-weight: 800; font-size: 36px; fill: #F8FAFC; }
+      .text-sub { font-family: monospace; font-size: 14px; fill: #5BC0BE; letter-spacing: 1px;}
+      .text-label { font-family: sans-serif; font-size: 11px; fill: #8B9BB4; font-weight: 600; letter-spacing: 0.5px;}
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg)" />
+  <rect width="100%" height="100%" fill="url(#grid)" />
+
+  <!-- Logo & Titles -->
+  <g transform="translate(50, 60)">
+    <text x="0" y="0" class="text-title">CausalMind <tspan fill="#5BC0BE" font-weight="300">|</tspan> 观因知行</text>
+    <text x="2" y="30" class="text-sub">EVIDENCE-FIRST DECISION INFERENCE ENGINE</text>
+  </g>
+
+  <!-- SECTION 1: Data Collection & Audit -->
+  <g transform="translate(50, 160)">
+    <text x="0" y="-30" class="text-label">RAW EVIDENCE</text>
+    <path d="M 0 0 L 200 0" stroke="#2A5C73" stroke-width="1" stroke-dasharray="4 4" />
+    <path d="M 0 40 L 200 40" stroke="#2A5C73" stroke-width="1" stroke-dasharray="4 4" />
+    <path d="M 0 -40 L 200 -40" stroke="#2A5C73" stroke-width="1" stroke-dasharray="4 4" />
+    
+    <!-- Moving Data Particles -->
+    <circle cx="20" cy="0" r="3" fill="#8B9BB4" class="flow-particle" />
+    <circle cx="20" cy="40" r="3" fill="#8B9BB4" class="flow-particle" />
+    <circle cx="20" cy="-40" r="3" fill="#8B9BB4" class="flow-particle" />
+
+    <!-- Audit Barrier -->
+    <rect x="220" y="-70" width="10" height="140" fill="#2A5C73" rx="5" />
+    <text x="205" y="-85" class="text-label">FACT AUDIT</text>
+    
+    <!-- Extracted Facts (Gold) -->
+    <circle cx="260" cy="-20" r="5" fill="url(#goldGlow)" filter="url(#glow)" />
+    <circle cx="270" cy="20" r="5" fill="url(#goldGlow)" filter="url(#glow)" />
+    <circle cx="280" cy="0" r="5" fill="url(#goldGlow)" filter="url(#glow)" />
+  </g>
+
+  <!-- SECTION 2: Causal Sandbox (Center) -->
+  <g transform="translate(550, 160)">
+    <text x="-30" y="-100" class="text-label" fill="#FFD43B">CAUSAL SANDBOX</text>
+    
+    <!-- Network Lines -->
+    <path d="M -100 -20 L 0 -50 L 100 -10 L 0 50 Z" stroke="#5BC0BE" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <path d="M -100 -20 L 0 50" stroke="#5BC0BE" stroke-width="1.5" fill="none" opacity="0.4"/>
+    <path d="M -100 20 L 0 -50" stroke="#5BC0BE" stroke-width="1.5" fill="none" opacity="0.4"/>
+    <path d="M 100 -10 L 120 40 L 0 50" stroke="#5BC0BE" stroke-width="1.5" fill="none" opacity="0.4"/>
+
+    <!-- Pulse Network Nodes -->
+    <circle cx="-100" cy="-20" r="8" fill="#0B192C" stroke="#5BC0BE" stroke-width="2" class="pulse" />
+    <circle cx="-100" cy="20" r="6" fill="#0B192C" stroke="#FFD43B" stroke-width="2" class="pulse" />
+    
+    <circle cx="0" cy="-50" r="10" fill="#0B192C" stroke="#5BC0BE" stroke-width="3" class="pulse" filter="url(#glow)"/>
+    <circle cx="0" cy="50" r="8" fill="#0B192C" stroke="#5BC0BE" stroke-width="2" class="pulse" />
+    
+    <circle cx="100" cy="-10" r="12" fill="url(#cyanGlow)" class="pulse" filter="url(#glow)"/>
+    <circle cx="120" cy="40" r="6" fill="#0B192C" stroke="#FFD43B" stroke-width="2" class="pulse" />
+
+    <!-- User Context Injection -->
+    <path d="M 0 -140 L 0 -80" stroke="#FFD43B" stroke-width="2" stroke-dasharray="4 2" />
+    <polygon points="-5,-85 5,-85 0,-75" fill="#FFD43B" />
+    <rect x="-60" y="-160" width="120" height="24" rx="4" fill="#1e293b" stroke="#FFD43B" stroke-width="1"/>
+    <text x="-48" y="-143" class="text-label" fill="#FFD43B">USER CONTEXT</text>
+  </g>
+
+  <!-- SECTION 3: Worldlines & Whitepaper -->
+  <g transform="translate(650, 150)">
+    <!-- Simulated Paths -->
+    <path d="M 0 0 C 150 -10, 200 -90, 350 -90" stroke="#5BC0BE" stroke-width="3" fill="none" class="line-draw" filter="url(#glow)"/>
+    <path d="M 0 0 C 150 10, 250 10, 350 10" stroke="#8B9BB4" stroke-width="2" fill="none" class="line-draw line-draw-delay-1" />
+    <path d="M 0 0 C 150 30, 200 90, 350 90" stroke="#D4AF37" stroke-width="2" fill="none" stroke-dasharray="6 4" class="line-draw line-draw-delay-2"/>
+
+    <!-- Path End Nodes -->
+    <circle cx="350" cy="-90" r="6" fill="#5BC0BE" filter="url(#glow)"/>
+    <circle cx="350" cy="10" r="4" fill="#8B9BB4" />
+    <circle cx="350" cy="90" r="4" fill="#D4AF37" />
+
+    <!-- Path Labels -->
+    <text x="365" y="-86" class="text-label" fill="#5BC0BE">WORLDLINE A (GROWTH)</text>
+    <text x="365" y="14" class="text-label">WORLDLINE B (BASE)</text>
+    <text x="365" y="94" class="text-label" fill="#D4AF37">WORLDLINE C (HEDGE)</text>
+    
+    <!-- Whitepaper Box -->
+    <rect x="360" y="-140" width="160" height="260" fill="none" stroke="#2A5C73" stroke-width="1" rx="8" stroke-dasharray="4 4"/>
+    <text x="390" y="-120" class="text-label">DECISION WHITEPAPER</text>
+  </g>
+
+</svg>
