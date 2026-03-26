@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <!-- 事实节点色 (Teal/Cyan) -->
+    <linearGradient id="factGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2DD4BF" />
+      <stop offset="100%" stop-color="#0F766E" />
+    </linearGradient>
+    
+    <!-- 世界线分支色 (Orange/Amber) -->
+    <linearGradient id="worldlineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FB923C" />
+      <stop offset="100%" stop-color="#C2410C" />
+    </linearGradient>
+
+    <!-- 发光滤镜 -->
+    <filter id="glowCyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="glowOrange" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- 箭头 -->
+    <marker id="arrowCyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0F766E" />
+    </marker>
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#C2410C" />
+    </marker>
+  </defs>
+
+  <!-- 底部沙盘网格透视 (Causal Sandbox) -->
+  <g stroke="#334155" stroke-width="1" opacity="0.4">
+    <path d="M 10 100 L 110 100 M 20 80 L 100 80 M 35 60 L 85 60" />
+    <path d="M 60 40 L 10 110 M 60 40 L 35 110 M 60 40 L 60 110 M 60 40 L 85 110 M 60 40 L 110 110" />
+  </g>
+
+  <!-- 核心因果连线与世界线分支 (Causal Links & Worldlines) -->
+  <!-- 基础事实 -> 核心干预节点 -->
+  <path d="M 30 85 Q 45 80 56 66" fill="none" stroke="url(#factGrad)" stroke-width="4" marker-end="url(#arrowCyan)" />
+  <path d="M 90 90 Q 75 80 64 67" fill="none" stroke="url(#factGrad)" stroke-width="4" marker-end="url(#arrowCyan)" />
+  
+  <!-- 干预决策沙盘分岔 (Intervention -> Worldlines) -->
+  <!-- 世界线 A (风险路径) -->
+  <path d="M 60 55 Q 45 35 32 23" fill="none" stroke="url(#worldlineGrad)" stroke-width="4" marker-end="url(#arrowOrange)" />
+  <!-- 世界线 B (高优路径) -->
+  <path d="M 60 55 Q 75 35 88 23" fill="none" stroke="url(#worldlineGrad)" stroke-width="4" marker-end="url(#arrowOrange)" />
+  <!-- 世界线 C (衍生平稳轴) -->
+  <path d="M 60 55 L 60 18" fill="none" stroke="url(#factGrad)" stroke-width="3" marker-end="url(#arrowCyan)" stroke-dasharray="4 3" />
+
+  <!-- 数据与推演节点 (Nodes) -->
+  <!-- 底层证据/事实节点 (Evidences & Facts) -->
+  <circle cx="30" cy="85" r="7" fill="#0F766E" filter="url(#glowCyan)" />
+  <circle cx="30" cy="85" r="3" fill="#ffffff" />
+  
+  <circle cx="90" cy="90" r="6" fill="#0F766E" filter="url(#glowCyan)" />
+  <circle cx="90" cy="90" r="2.5" fill="#ffffff" />
+
+  <!-- 中心干预/决策沙盘节点 (Sandbox Core) -->
+  <circle cx="60" cy="62" r="10" fill="url(#factGrad)" filter="url(#glowCyan)" />
+  <!-- 内部菱形代表 Decision -->
+  <polygon points="60,55 67,62 60,69 53,62" fill="#ffffff" /> 
+
+  <!-- 未来世界线结果节点 (Worldline Outcomes) -->
+  <circle cx="30" cy="20" r="6" fill="#C2410C" filter="url(#glowOrange)" />
+  <circle cx="30" cy="20" r="2" fill="#ffffff" />
+
+  <circle cx="90" cy="20" r="8" fill="#C2410C" filter="url(#glowOrange)" />
+  <circle cx="90" cy="20" r="3" fill="#ffffff" />
+
+  <circle cx="60" cy="14" r="5" fill="#0F766E" filter="url(#glowCyan)" />
+  <circle cx="60" cy="14" r="2" fill="#ffffff" />
+</svg>

@@ -11,10 +11,10 @@ const request = axios.create({
 request.interceptors.request.use(
   config => {
     // Inject the LLM routing configuration into a custom header
-    const savedConfig = localStorage.getItem('wolong_llm_config')
+    const savedConfig = localStorage.getItem('causalmind_llm_config')
     if (savedConfig) {
       // Encode as Base64 to safely transmit JSON over HTTP headers
-      config.headers['X-Wolong-Config'] = btoa(encodeURIComponent(savedConfig))
+      config.headers['X-CausalMind-Config'] = btoa(encodeURIComponent(savedConfig))
     }
     return config
   },

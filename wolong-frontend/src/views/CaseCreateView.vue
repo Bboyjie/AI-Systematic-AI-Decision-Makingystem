@@ -13,7 +13,7 @@
 
     <div class="max-w-2xl w-full bg-white rounded-xl shadow-lg p-8">
       <div class="text-center mb-8">
-        <h1 class="text-3xl font-bold text-slate-800 mb-2">卧龙 - 决策推演沙盘</h1>
+        <h1 class="text-3xl font-bold text-slate-800 mb-2">观因知行 - 决策推演沙盘</h1>
         <p class="text-slate-500">请输入您的决策情景或当前面临的难题，我们将为您构建专属推演空间</p>
       </div>
 

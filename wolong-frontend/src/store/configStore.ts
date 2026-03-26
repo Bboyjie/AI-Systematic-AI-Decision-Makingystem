@@ -28,7 +28,7 @@ export const useConfigStore = defineStore('config', () => {
 
   // Load from LocalStorage
   const loadState = () => {
-    const saved = localStorage.getItem('wolong_llm_config')
+    const saved = localStorage.getItem('causalmind_llm_config')
     if (saved) {
       try {
         const parsed = JSON.parse(saved)
@@ -58,7 +58,7 @@ export const useConfigStore = defineStore('config', () => {
 
   // Save to LocalStorage automatically when state changes
   watch([providers, stageAssignments], () => {
-    localStorage.setItem('wolong_llm_config', JSON.stringify({
+    localStorage.setItem('causalmind_llm_config', JSON.stringify({
       providers: providers.value,
       stageAssignments: stageAssignments.value
     }))

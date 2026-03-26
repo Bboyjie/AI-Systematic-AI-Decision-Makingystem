@@ -4,7 +4,7 @@
     <header class="bg-white shadow-sm sticky top-0 z-10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <div class="flex items-center space-x-4">
-          <h2 class="text-xl font-bold text-slate-800">卧龙决策域</h2>
+          <h2 class="text-xl font-bold text-slate-800">观因知行决策域</h2>
           <el-tag type="info" size="small" effect="plain" class="font-mono">
             {{ route.params.id }}
           </el-tag>
